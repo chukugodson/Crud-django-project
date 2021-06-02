@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<!-- Meta Tags -->
+		<meta charset="utf-8">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Font Awesome -->
+		<script src="https://kit.fontawesome.com/3dc89e56d7.js" crossorigin="anonymous"></script>
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+		<title>Login Page</title>
+
+		<style>
+			.card {
+			width: 350px;
+			margin-top: auto;
+			margin-bottom: auto;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			padding: 10px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			border-radius: 5px;
+			}
+
+			.form-container {
+				margin-top: 100px;
+			}
+
+
+		</style>
+	</head>
+
+	<body class="bg-dark text-center container h-100">
+		<h1 class="mt-2" style="color:blue;">Login</h1>
+		<div class="d-flex justify-content-center form-container h-100"> 
+			<div class="card">
+				<form method="post" action="{% url 'login' %}">
+					{% csrf_token %}
+					<div class="mb-3">
+						<label class="form-label">Username</label>
+						{{form.username}}
+					</div>
+					<div class="mb-3">
+						<label class="form-label">Password</label>
+						{{form.password}}
+					</div>
+					<div class="checkbox mt-2 text-body mb-3">
+						<label>
+							<input type="checkbox" value="remember-me">
+							Remember Me
+						</label>
+					</div>
+					<div class="form-row">
+						<button type="submit" class="btn btn-danger btn-lg btn-block mb-3">Login</button>
+					</div>
+					<p>Don't have an account? <a href="{% url 'register' %}">Sign Up</a></p>
+					<p><a href="{% url 'password_reset' %}">Forgot your password?</a></p>
+					<p>{{form.errors}}</p>
+				</form>
+			</div>
+		</div>
+
+	</body>
+
+</html>

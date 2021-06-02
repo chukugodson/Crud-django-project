@@ -1,0 +1,1 @@
+web: gunicorn crud_django_project.wsgi

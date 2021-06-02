@@ -1,0 +1,17 @@
+body {
+    background-color: #000001
+}
+
+.logout {
+    margin: 25px;
+}
+.logout-btn {
+    background-color: #1111;
+    border: 2px solid blue;
+    border-radius: 47px;
+    padding: 15px;
+}
+
+.logout-btn {
+    text-decoration: none;
+}
